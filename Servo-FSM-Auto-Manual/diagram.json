@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-st-nucleo-c031c6",
+      "id": "nucleo",
+      "top": -8.77,
+      "left": -260.18,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": -21.2,
+      "left": 28.8,
+      "attrs": { "hornColor": "orange" }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 104.3, "left": -451.4, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 316.2,
+      "left": -169.8,
+      "rotate": 90,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 25.2,
+      "left": 224.6,
+      "attrs": { "color": "orange" }
+    },
+    { "type": "wokwi-led", "id": "led2", "top": 63.6, "left": -361, "attrs": { "color": "cyan" } }
+  ],
+  "connections": [
+    [ "$serialMonitor:TX", "nucleo:PA3", "", [] ],
+    [ "$serialMonitor:RX", "nucleo:PA2", "", [] ],
+    [ "nucleo:D9", "servo1:PWM", "green", [ "h0" ] ],
+    [ "servo1:V+", "nucleo:5V.2", "green", [ "h0" ] ],
+    [ "servo1:GND", "nucleo:GND.5", "black", [ "h0" ] ],
+    [ "pot1:SIG", "nucleo:A0", "orange", [ "v0" ] ],
+    [ "pot1:VCC", "nucleo:3V3.2", "red", [ "v0" ] ],
+    [ "pot1:GND", "nucleo:GND.5", "black", [ "v0" ] ],
+    [ "btn1:2.l", "nucleo:GND.4", "green", [ "h0" ] ],
+    [ "btn1:1.l", "nucleo:D2", "green", [ "h0" ] ],
+    [ "nucleo:GND.7", "led1:C", "black", [ "h0" ] ],
+    [ "led1:A", "nucleo:D7", "green", [ "v0" ] ],
+    [ "nucleo:GND.2", "led2:C", "black", [ "h0" ] ],
+    [ "nucleo:D8", "led2:A", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}

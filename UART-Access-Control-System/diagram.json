@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-st-nucleo-c031c6", "id": "nucleo", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -70.8,
+      "left": 243.8,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -70.8,
+      "left": -15.4,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 12,
+      "left": -94.2,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": -2,
+      "left": 355.2,
+      "attrs": { "horn": "cross", "hornColor": "orange" }
+    }
+  ],
+  "connections": [
+    [ "$serialMonitor:TX", "nucleo:PA3", "", [] ],
+    [ "$serialMonitor:RX", "nucleo:PA2", "", [] ],
+    [ "led1:C", "nucleo:GND.2", "black", [ "v0" ] ],
+    [ "led1:A", "nucleo:D13", "green", [ "v0" ] ],
+    [ "led2:C", "nucleo:GND.4", "black", [ "v0" ] ],
+    [ "led2:A", "nucleo:D12", "red", [ "v0" ] ],
+    [ "nucleo:GND.5", "bz1:1", "black", [ "h0" ] ],
+    [ "nucleo:GND.6", "servo1:GND", "black", [ "h287.47", "v-171.97" ] ],
+    [ "servo1:V+", "nucleo:3V3.2", "green", [ "h-19.2", "v96.1" ] ],
+    [ "nucleo:D10", "servo1:PWM", "orange", [ "h0" ] ],
+    [ "nucleo:PC6", "bz1:2", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}

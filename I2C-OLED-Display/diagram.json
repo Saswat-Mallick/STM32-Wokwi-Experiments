@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-st-nucleo-c031c6",
+      "id": "nucleo",
+      "top": -37.57,
+      "left": -106.58,
+      "attrs": {}
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 31.94,
+      "left": 288.23,
+      "attrs": { "i2cAddress": "0x3c" }
+    }
+  ],
+  "connections": [
+    [ "$serialMonitor:TX", "nucleo:PA3", "", [] ],
+    [ "$serialMonitor:RX", "nucleo:PA2", "", [] ],
+    [ "nucleo:3V3.2", "oled1:VCC", "green", [ "h0.45", "v-134.4", "h403.2" ] ],
+    [ "nucleo:GND.5", "oled1:GND", "black", [ "h19.65", "v-144" ] ],
+    [ "oled1:SCL", "nucleo:PB6", "blue", [ "v-28.8", "h153.9", "v134.4" ] ],
+    [ "nucleo:PB7", "oled1:SDA", "gold", [ "h371.75", "v-240" ] ]
+  ],
+  "dependencies": {}
+}

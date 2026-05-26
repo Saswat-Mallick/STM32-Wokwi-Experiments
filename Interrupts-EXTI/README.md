@@ -1,4 +1,4 @@
-# 05 - Interrupts (EXTI)
+# Interrupts (EXTI)
 
 ## Overview
 A button-controlled LED toggle using External Interrupts (EXTI) instead of polling.
